@@ -1,0 +1,7 @@
+#!/bin/sh  
+
+echo "I: create gumstix user"
+adduser --gecos gumstix --disabled-login gumstix
+
+echo "I: set gumstix user password"
+echo "gumstix:gumstix" | chpasswd

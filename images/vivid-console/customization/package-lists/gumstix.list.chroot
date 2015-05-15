@@ -1,0 +1,6 @@
+build-essential
+linux-firmware
+initramfs-tools
+openssh-server
+ubuntu-minimal
+ubuntu-standard

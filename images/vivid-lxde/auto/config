@@ -1,0 +1,24 @@
+#!/bin/sh
+set -e
+
+export LB_BOOTSTRAP_FLAVOUR="minbase"
+lb config noauto \
+ --apt-indices none \
+ --architectures armhf \
+ --archive-areas 'main universe multiverse' \
+ --binary-filesystem ext4 \
+ --binary-images tar \
+ --bootstrap-qemu-arch armhf \
+ --bootstrap-qemu-static /usr/bin/qemu-arm-static \
+ --chroot-filesystem none \
+ --compression gzip \
+ --distribution vivid \
+ --iso-volume "Gumstix Vivid" \
+ --iso-publisher "Gumstix https://www.gumstix.com" \
+ --linux-flavours none \
+ --linux-packages none \
+ --mode ubuntu \
+ --swap-file-path /swapfile \
+ --system normal
+
+cp -rf customization/* config/

@@ -1,0 +1,12 @@
+initrd_addr=0x88080000
+kernel_file=vmlinuz-3.17.8-custom
+initrd_file=initrd.img-3.17.8-custom
+dtbpath=/boot/dtbs/3.17.8-custom
+mmcrootfstype=ext4
+
+loadfiles=run loadkernel; run loadinitrd; run loadfdt
+loadkernel=load mmc ${mmcdev}:2 ${loadaddr} boot/${kernel_file}
+loadinitrd=load mmc ${mmcdev}:2 ${initrd_addr} boot/${initrd_file}; setenv initrd_size ${filesize}
+loadfdt=set fdtfile omap3-${boardname}-${expansionname}.dtb; load mmc ${mmcdev}:2 ${fdtaddr} ${dtbpath}/${fdtfile}
+
+uenvcmd=run loadfiles;set mmcroot /dev/disk/by-label/rootfs;run mmcargs; bootz ${loadaddr} ${initrd_addr}:${initrd_size} ${fdtaddr}

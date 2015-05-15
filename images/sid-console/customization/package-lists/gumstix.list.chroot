@@ -1,0 +1,6 @@
+build-essential
+firmware-ti-connectivity
+initramfs-tools
+net-tools
+openssh-server
+sudo
