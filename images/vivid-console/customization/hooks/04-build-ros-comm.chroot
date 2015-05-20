@@ -1,0 +1,25 @@
+#!/bin/sh 
+
+# Setup sources.list
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -
+sudo apt-get update
+
+# Install bootstrap dependencies
+sudo apt-get install python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential -y
+
+# Initializing rosdep
+sudo rosdep init
+rosdep update
+
+# Installation
+mkdir ~/ros_catkin_ws
+cd ~/ros_catkin_ws
+rosinstall_generator ros_comm --rosdistro indigo --deps --wet-only --tar > indigo-ros_comm-wet.rosinstall
+wstool init -j8 src indigo-ros_comm-wet.rosinstall
+
+# Resolving dependencies
+rosdep install --from-paths src --ignore-src --rosdistro indigo -y
+
+# Building catkin workspace
+./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release
