@@ -80,7 +80,4 @@ sudo umount /mnt
 
 sudo ${KPARTX} -dv ${IMGFILE}
 
-echo "I: Creating a compressed image"
-gzip -9 ${IMGFILE}
-
 echo "I: Done"
