@@ -34,9 +34,9 @@ Usage
    your development machine, note the drive name, and then format it.
    **Warning**: this erases anything currently on the microSD card!
 
-       # substitute the path to the drive e.g. /dev/sdd or /dev/mmcblk0 (not the
-       # path of a partition e.g. /dev/sdd1 or /dev/mmcblk0p1) in place of <drive>
-       $ MACHINE=<machine> IMAGE=<image> scripts/mkcard.sh <drive name>
+		$ # substitute the path to the drive e.g. /dev/sdd or /dev/mmcblk0 (not the
+		$ # path of a partition e.g. /dev/sdd1 or /dev/mmcblk0p1) in place of <drive>
+		$ MACHINE=<machine> IMAGE=<image> scripts/mkcard.sh <drive name>
 
 6.	Alternatively, you have the option of creating a dd-able image after the
 	build process is complete using the mkiso.sh script present in the scripts/
