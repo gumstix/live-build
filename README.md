@@ -18,11 +18,11 @@ Usage
 3. Choose an image type and machine for which to build.  This repository
    supports the Gumstix *overo*, *duovero*, and *pepper* machines.
 
-Image Name      | Description
-----------------|-------------
-*vivid-console* | A developer-oriented console image of Ubuntu 15.04
-*vivid-lxde*    | Ubuntu 15.04 "Vivid Vervet" with a lightweight desktop environment (LXDE)
-*sid-console*	| Debian Sid console image
+	Image Name      | Description
+	----------------|-------------
+	*vivid-console* | A developer-oriented console image of Ubuntu 15.04
+	*vivid-lxde*    | Ubuntu 15.04 "Vivid Vervet" with a lightweight desktop environment (LXDE)
+	*sid-console*	| Debian Sid console image
 
 4. *Make* it!  You will be prompted for a super-user password then go get some
    coffee.
@@ -37,6 +37,22 @@ Image Name      | Description
        # substitute the path to the drive e.g. /dev/sdd or /dev/mmcblk0 (not the
        # path of a partition e.g. /dev/sdd1 or /dev/mmcblk0p1) in place of <drive>
        $ MACHINE=<machine> IMAGE=<image> scripts/mkcard.sh <drive name>
+
+6.	Alternatively, you have the option of creating a dd-able image after the
+	build process is complete using the mkiso.sh script present in the scripts/
+	directory. Before using the script, make sure that the following tools are
+	installed: qemu-img, mkfs, kpartx, sfdisk, losetup.
+
+		$ sudo apt-get install qemu-utils dosfsutils kpartx
+
+	Then, run the script:
+
+		$ MACHINE=<machine> IMAGE=<image> scripts/mkiso.sh
+
+	This will create a [machine]-[image].img file which needs to be flashed on
+	the microSD card.
+
+		$ sudo dd if=/path/to/the/image/file of=/dev/sdX bs=4K
 
 Customization
 -------------
