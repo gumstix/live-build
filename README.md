@@ -4,8 +4,19 @@ Ubuntu on Gumstix
 This repository provides a method to build an Ubuntu image for various
 Gumstix boards such as Overo COMs, DuoVero COMs, and the Pepper SBC.
 
-Usage
------
+Prebuilt Images
+---------------
+
+If you want to get started with Ubuntu using one of our prebuilt images, you can download
+these prebuilt console images for Ubuntu 15.04 for [Overo][8], [Duovero][9] and [Pepper][10]. 
+Flash them on to the SD card and you are good to go!
+
+	$ sudo dd if=/path/to/the/image/file of=/dev/sdX bs=4K
+
+Build Instructions
+------------------
+
+If you want to build everything from scratch:
 
 1. Install the required tools on your host system:
 
@@ -55,7 +66,12 @@ Usage
 		$ sudo dd if=/path/to/the/image/file of=/dev/sdX bs=4K
 
 	If you have an SD card bigger than 4GB, you can resize the image after flashing
-	it on the SD card. Refer to [these instructions][8] to resize the image using *parted*.
+	it on the SD card using *gparted*
+	
+		$ sudo apt-get install gparted
+		$ sudo gparted /dev/sdX
+
+	Now click on the partition you want to resize and select Partition -> Resize/Move from the menu.
 
 Customization
 -------------
@@ -124,4 +140,6 @@ additional needs to be compiled, there are three options:
 [6]: http://live.debian.net/devel/live-config/
 [6]: https://wiki.linaro.org/Platform/DevPlatform/CrossCompile/CurrentPackageCrossBuildStatus
 [7]: https://github.com/gumstix/yocto-manifest
-[8]: http://elinux.org/RPi_Resize_Flash_Partitions#Manually_resizing_the_SD_card_on_Linux
+[8]: https://catalina.gumstix.com/binaries/?sort=-last_updated&search=ubuntu-overo-master+ddable
+[9]: https://catalina.gumstix.com/binaries/?sort=-last_updated&search=ubuntu-duovero-master+ddable
+[10]: https://catalina.gumstix.com/binaries/?sort=-last_updated&search=ubuntu-pepper-master+ddable
