@@ -143,6 +143,6 @@ additional needs to be compiled, there are three options:
 [6]: http://live.debian.net/devel/live-config/
 [6]: https://wiki.linaro.org/Platform/DevPlatform/CrossCompile/CurrentPackageCrossBuildStatus
 [7]: https://github.com/gumstix/yocto-manifest
-[8]: https://catalina.gumstix.com/binaries/?sort=-last_updated&search=ubuntu-overo-master+ddable
-[9]: https://catalina.gumstix.com/binaries/?sort=-last_updated&search=ubuntu-duovero-master+ddable
-[10]: https://catalina.gumstix.com/binaries/?sort=-last_updated&search=ubuntu-pepper-master+ddable
+[8]: https://catalina.gumstix.com/binaries/?sort=-last_updated&search=ubuntu-overo-master-iso
+[9]: https://catalina.gumstix.com/binaries/?sort=-last_updated&search=ubuntu-duovero-master-iso
+[10]: https://catalina.gumstix.com/binaries/?sort=-last_updated&search=ubuntu-pepper-master-iso
