@@ -8,9 +8,11 @@ Prebuilt Images
 ---------------
 
 If you want to get started with Ubuntu using one of our prebuilt images, you can download
-these prebuilt console images for Ubuntu 15.04 for [Overo][8], [Duovero][9] and [Pepper][10]. 
+these prebuilt console images for Ubuntu 15.04 for [Overo][8], [Duovero][9] and [Pepper][10].
 Flash them on to the SD card and you are good to go!
 
+	# First unmount the SD card before flashing the image
+	$ xz -d <image.xz> # Uncompress the image
 	$ sudo dd if=/path/to/the/image/file of=/dev/sdX bs=4K
 
 Build Instructions
@@ -63,11 +65,12 @@ If you want to build everything from scratch:
 	This will create a [machine]-[image].img file of size 4GB which needs to be
 	flashed on the microSD card.
 
+		# First unmount the SD card
 		$ sudo dd if=/path/to/the/image/file of=/dev/sdX bs=4K
 
 	If you have an SD card bigger than 4GB, you can resize the image after flashing
 	it on the SD card using *gparted*
-	
+
 		$ sudo apt-get install gparted
 		$ sudo gparted /dev/sdX
 
