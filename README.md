@@ -22,11 +22,12 @@ If you want to build everything from scratch:
 
 1. Install the required tools on your host system:
 
-        $ sudo apt-get install -y git live-build qemu-user-static
+        $ sudo apt-get install -y git live-build qemu-user-static gcc-arm-linux-gnueabihf
 
 2. Fetch this repository.
 
         $ git clone git://github.com/gumstix/live-build.git
+	$ cd live-build
 
 3. Choose an image type and machine for which to build.  This repository
    supports the Gumstix *overo*, *duovero*, and *pepper* machines.
@@ -56,7 +57,7 @@ If you want to build everything from scratch:
 	directory. Before using the script, make sure that the following tools are
 	installed: qemu-img, mkfs, kpartx, sfdisk, losetup.
 
-		$ sudo apt-get install qemu-utils dosfsutils kpartx
+		$ sudo apt-get install qemu-utils dosfstools kpartx
 
 	Then, run the script:
 
@@ -75,6 +76,10 @@ If you want to build everything from scratch:
 		$ sudo gparted /dev/sdX
 
 	Now click on the partition you want to resize and select Partition -> Resize/Move from the menu.
+
+7. Once the microSD card has been written, insert it into your Gumstix system, login
+   as *gumstix* with password *gumstix* and start playing with your new Ubuntu/Debian
+   image.
 
 Customization
 -------------
