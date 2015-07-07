@@ -4,3 +4,4 @@ initramfs-tools
 openssh-server
 ubuntu-minimal
 ubuntu-standard
+wpasupplicant
