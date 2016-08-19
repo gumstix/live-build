@@ -1,8 +1,8 @@
 # where to load initrd
 initrd_addr=0x88080000
-kernel_file=vmlinuz-3.17.8-custom
-initrd_file=initrd.img-3.17.8-custom
-dtbpath=/boot/dtbs/3.17.8-custom
+kernel_file=vmlinuz-3.18.21
+initrd_file=initrd.img-3.18.21
+dtbpath=/boot/dtbs/3.18.21
 mmcrootfstype=ext4
 
 loadfiles=run loadkernel; run loadinitrd; run loadfdt
